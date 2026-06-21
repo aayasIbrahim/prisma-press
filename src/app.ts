@@ -3,6 +3,7 @@ import config from "./config";
 import cors from "cors"
 import cookieParse from "cookie-parser"
 
+
 const app:Application=express()
 app.use(cors({
     origin : config.app_url,
@@ -12,7 +13,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended : true }));
 app.use(cookieParse())
-app.get("/",(req:Request,res:Response)=>{
+app.get("/",async(req:Request,res:Response)=>{
     res.send("hello Word")
 })
 export default app;
