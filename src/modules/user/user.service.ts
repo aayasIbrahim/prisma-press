@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import { prisma } from "../../lib/prisma";
 import bcrypt from "bcrypt";
-import { RegisterUser } from "./user.interface";
+import { IRegisterUser } from "./user.interface";
 import config from "../../config";
 
-const registerUserIntoDB = async (payload: RegisterUser) => {
+const registerUserIntoDB = async (payload: IRegisterUser) => {
   const { name, email, password, profilePhoto } = payload;
   const existingUser = await prisma.user.findUnique({
     where: {
@@ -23,15 +23,14 @@ const registerUserIntoDB = async (payload: RegisterUser) => {
       name,
       email,
       password: hasdPassword,
+      profile: {
+        create: {
+          profilePhoto,
+        },
+      },
     },
   });
 
-  await prisma.profile.create({
-    data: {
-      userId: newUser.id,
-      profilePhoto,
-    },
-  });
   const user = await prisma.user.findUnique({
     where: {
       id: newUser.id,
@@ -40,14 +39,30 @@ const registerUserIntoDB = async (payload: RegisterUser) => {
     omit: {
       password: true,
     },
-    
-    include: {        
-        // Include related profile data (similar to SQL LEFT JOIN)   
-      profile: true,  
+
+    include: {
+      // Include related profile data (similar to SQL LEFT JOIN)
+      profile: true,
     },
   });
   return user;
 };
+const getMyProfileIntoDB = async (userId: string) => {
+  const result = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+    omit: {
+      password: true,
+    },
+    include:{
+      profile:true
+    }
+  });
+  return result;
+};
+
 export const userService = {
   registerUserIntoDB,
+  getMyProfileIntoDB,
 };

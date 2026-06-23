@@ -1,30 +1,43 @@
-import { Request, Response } from "express";
+import { jwtUtils } from "./../../utils/jwt";
+import jwt, { JwtPayload } from "jsonwebtoken";
+import { Payload } from "./../../../prisma/generated/prisma/internal/prismaNamespace";
+import { NextFunction, Request, Response } from "express";
 import { userService } from "./user.service";
 import httpStatus from "http-status";
+import { catchAsync } from "../../utils/catchAsync";
+import { sendResponse } from "../../utils/sendResponse";
+import config from "../../config";
 
-const registerUser = async (req: Request, res: Response) => {
-  try {
+const registerUser = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
     const payload = req.body;
     const user = await userService.registerUserIntoDB(payload);
-
-    res.status(httpStatus.CREATED).json({
+    sendResponse(res, {
       success: true,
       statusCode: httpStatus.CREATED,
-      message: "User registered successfully",
+      message: "User Registation Successfully",
       data: {
         user,
       },
     });
-  } catch (error) {
-    console.error(error);
-    res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
-      success: false,
-      statusCode: httpStatus.INTERNAL_SERVER_ERROR,
-      message: "Failed to register user",
-      error: (error as Error).message,
+  },
+);
+const getMyProfile = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { accessToken } = req.cookies;
+    const token = jwtUtils.verifyToken(accessToken, config.jwt_access_secret);
+    const { id } = token as JwtPayload;
+    const profile = await userService.getMyProfileIntoDB(id);
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "me Successfully",
+      data: profile,
     });
-  }
-};
+  },
+);
 export const userController = {
   registerUser,
+  getMyProfile,
 };

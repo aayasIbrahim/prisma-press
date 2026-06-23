@@ -6,4 +6,4 @@ model profile {
     user user @relation(fields:[userId],references: [id])
     @@map("profiles")
 
-}
+} 

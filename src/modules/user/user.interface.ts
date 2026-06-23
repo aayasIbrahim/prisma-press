@@ -1,6 +1,7 @@
-export interface RegisterUser{
-    name:string,
-    email:string,
-    password:string,
-    profilePhoto?:string
+export interface IRegisterUser {
+  name: string;
+  email: string;
+  password: string;
+  profilePhoto?: string;
 }
+
