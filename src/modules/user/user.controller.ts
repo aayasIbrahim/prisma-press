@@ -1,6 +1,5 @@
 import { jwtUtils } from "./../../utils/jwt";
 import jwt, { JwtPayload } from "jsonwebtoken";
-import { Payload } from "./../../../prisma/generated/prisma/internal/prismaNamespace";
 import { NextFunction, Request, Response } from "express";
 import { userService } from "./user.service";
 import httpStatus from "http-status";
@@ -32,7 +31,7 @@ const getMyProfile = catchAsync(
     sendResponse(res, {
       success: true,
       statusCode: httpStatus.OK,
-      message: "me Successfully",
+      message: "User Profile Retrieved Successfully",
       data: profile,
     });
   },

@@ -661,30 +661,30 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
 
 
 /**
- * Reference to a field of type 'activeStatus'
+ * Reference to a field of type 'ActiveStatus'
  */
-export type EnumactiveStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'activeStatus'>
+export type EnumActiveStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ActiveStatus'>
     
 
 
 /**
- * Reference to a field of type 'activeStatus[]'
+ * Reference to a field of type 'ActiveStatus[]'
  */
-export type ListEnumactiveStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'activeStatus[]'>
+export type ListEnumActiveStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ActiveStatus[]'>
     
 
 
 /**
- * Reference to a field of type 'role'
+ * Reference to a field of type 'Role'
  */
-export type EnumroleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'role'>
+export type EnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role'>
     
 
 
 /**
- * Reference to a field of type 'role[]'
+ * Reference to a field of type 'Role[]'
  */
-export type ListEnumroleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'role[]'>
+export type ListEnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role[]'>
     
 
 

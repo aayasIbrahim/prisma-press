@@ -1,8 +1,8 @@
-enum activeStatus{
+enum ActiveStatus{
     ACTIVE
     BLOCKED
 }
-enum role{
+enum Role{
     USER
     AUTHOR
     ADMIN
