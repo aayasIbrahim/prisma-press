@@ -3,8 +3,8 @@ model user{
     name String @db.VarChar(255)
     email String @unique
     password String 
-    activeStatus activeStatus @default(ACTIVE)
-    role role @default(USER)
+    activeStatus ActiveStatus @default(ACTIVE)
+    role Role @default(USER)
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     profile profile?

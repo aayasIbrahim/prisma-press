@@ -13,6 +13,10 @@ const loginIntoDB = async (payload: ILoginUser) => {
       email,
     },
   });
+  if (user.activeStatus === "BLOCKED") {
+    throw new Error("Your account has been blocked. Please contact support.");
+  }
+
   const isPasswordMatch = await bcrypt.compare(password, user.password);
   if (!isPasswordMatch) {
     throw new Error("Password is Incorrect");
