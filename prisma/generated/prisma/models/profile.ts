@@ -4,7 +4,7 @@
 // biome-ignore-all lint: generated file
 // @ts-nocheck 
 /*
- * This file exports the `profile` model and its related types.
+ * This file exports the `Profile` model and its related types.
  *
  * 🟢 You can import this file directly.
  */
@@ -13,10 +13,10 @@ import type * as $Enums from "../enums"
 import type * as Prisma from "../internal/prismaNamespace"
 
 /**
- * Model profile
+ * Model Profile
  * 
  */
-export type profileModel = runtime.Types.Result.DefaultSelection<Prisma.$profilePayload>
+export type ProfileModel = runtime.Types.Result.DefaultSelection<Prisma.$ProfilePayload>
 
 export type AggregateProfile = {
   _count: ProfileCountAggregateOutputType | null
@@ -71,37 +71,37 @@ export type ProfileCountAggregateInputType = {
 
 export type ProfileAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which profile to aggregate.
+   * Filter which Profile to aggregate.
    */
-  where?: Prisma.profileWhereInput
+  where?: Prisma.ProfileWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of profiles to fetch.
+   * Determine the order of Profiles to fetch.
    */
-  orderBy?: Prisma.profileOrderByWithRelationInput | Prisma.profileOrderByWithRelationInput[]
+  orderBy?: Prisma.ProfileOrderByWithRelationInput | Prisma.ProfileOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
    * Sets the start position
    */
-  cursor?: Prisma.profileWhereUniqueInput
+  cursor?: Prisma.ProfileWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` profiles from the position of the cursor.
+   * Take `±n` Profiles from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` profiles.
+   * Skip the first `n` Profiles.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Count returned profiles
+   * Count returned Profiles
   **/
   _count?: true | ProfileCountAggregateInputType
   /**
@@ -129,11 +129,11 @@ export type GetProfileAggregateType<T extends ProfileAggregateArgs> = {
 
 
 
-export type profileGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.profileWhereInput
-  orderBy?: Prisma.profileOrderByWithAggregationInput | Prisma.profileOrderByWithAggregationInput[]
+export type ProfileGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ProfileWhereInput
+  orderBy?: Prisma.ProfileOrderByWithAggregationInput | Prisma.ProfileOrderByWithAggregationInput[]
   by: Prisma.ProfileScalarFieldEnum[] | Prisma.ProfileScalarFieldEnum
-  having?: Prisma.profileScalarWhereWithAggregatesInput
+  having?: Prisma.ProfileScalarWhereWithAggregatesInput
   take?: number
   skip?: number
   _count?: ProfileCountAggregateInputType | true
@@ -151,7 +151,7 @@ export type ProfileGroupByOutputType = {
   _max: ProfileMaxAggregateOutputType | null
 }
 
-export type GetProfileGroupByPayload<T extends profileGroupByArgs> = Prisma.PrismaPromise<
+export type GetProfileGroupByPayload<T extends ProfileGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<ProfileGroupByOutputType, T['by']> &
       {
@@ -166,119 +166,119 @@ export type GetProfileGroupByPayload<T extends profileGroupByArgs> = Prisma.Pris
 
 
 
-export type profileWhereInput = {
-  AND?: Prisma.profileWhereInput | Prisma.profileWhereInput[]
-  OR?: Prisma.profileWhereInput[]
-  NOT?: Prisma.profileWhereInput | Prisma.profileWhereInput[]
-  id?: Prisma.StringFilter<"profile"> | string
-  profilePhoto?: Prisma.StringNullableFilter<"profile"> | string | null
-  bio?: Prisma.StringNullableFilter<"profile"> | string | null
-  userId?: Prisma.StringFilter<"profile"> | string
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
+export type ProfileWhereInput = {
+  AND?: Prisma.ProfileWhereInput | Prisma.ProfileWhereInput[]
+  OR?: Prisma.ProfileWhereInput[]
+  NOT?: Prisma.ProfileWhereInput | Prisma.ProfileWhereInput[]
+  id?: Prisma.StringFilter<"Profile"> | string
+  profilePhoto?: Prisma.StringNullableFilter<"Profile"> | string | null
+  bio?: Prisma.StringNullableFilter<"Profile"> | string | null
+  userId?: Prisma.StringFilter<"Profile"> | string
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
-export type profileOrderByWithRelationInput = {
+export type ProfileOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   profilePhoto?: Prisma.SortOrderInput | Prisma.SortOrder
   bio?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
-  user?: Prisma.userOrderByWithRelationInput
+  user?: Prisma.UserOrderByWithRelationInput
 }
 
-export type profileWhereUniqueInput = Prisma.AtLeast<{
+export type ProfileWhereUniqueInput = Prisma.AtLeast<{
   id?: string
   userId?: string
-  AND?: Prisma.profileWhereInput | Prisma.profileWhereInput[]
-  OR?: Prisma.profileWhereInput[]
-  NOT?: Prisma.profileWhereInput | Prisma.profileWhereInput[]
-  profilePhoto?: Prisma.StringNullableFilter<"profile"> | string | null
-  bio?: Prisma.StringNullableFilter<"profile"> | string | null
-  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.userWhereInput>
+  AND?: Prisma.ProfileWhereInput | Prisma.ProfileWhereInput[]
+  OR?: Prisma.ProfileWhereInput[]
+  NOT?: Prisma.ProfileWhereInput | Prisma.ProfileWhereInput[]
+  profilePhoto?: Prisma.StringNullableFilter<"Profile"> | string | null
+  bio?: Prisma.StringNullableFilter<"Profile"> | string | null
+  user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id" | "userId">
 
-export type profileOrderByWithAggregationInput = {
+export type ProfileOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   profilePhoto?: Prisma.SortOrderInput | Prisma.SortOrder
   bio?: Prisma.SortOrderInput | Prisma.SortOrder
   userId?: Prisma.SortOrder
-  _count?: Prisma.profileCountOrderByAggregateInput
-  _max?: Prisma.profileMaxOrderByAggregateInput
-  _min?: Prisma.profileMinOrderByAggregateInput
+  _count?: Prisma.ProfileCountOrderByAggregateInput
+  _max?: Prisma.ProfileMaxOrderByAggregateInput
+  _min?: Prisma.ProfileMinOrderByAggregateInput
 }
 
-export type profileScalarWhereWithAggregatesInput = {
-  AND?: Prisma.profileScalarWhereWithAggregatesInput | Prisma.profileScalarWhereWithAggregatesInput[]
-  OR?: Prisma.profileScalarWhereWithAggregatesInput[]
-  NOT?: Prisma.profileScalarWhereWithAggregatesInput | Prisma.profileScalarWhereWithAggregatesInput[]
-  id?: Prisma.StringWithAggregatesFilter<"profile"> | string
-  profilePhoto?: Prisma.StringNullableWithAggregatesFilter<"profile"> | string | null
-  bio?: Prisma.StringNullableWithAggregatesFilter<"profile"> | string | null
-  userId?: Prisma.StringWithAggregatesFilter<"profile"> | string
+export type ProfileScalarWhereWithAggregatesInput = {
+  AND?: Prisma.ProfileScalarWhereWithAggregatesInput | Prisma.ProfileScalarWhereWithAggregatesInput[]
+  OR?: Prisma.ProfileScalarWhereWithAggregatesInput[]
+  NOT?: Prisma.ProfileScalarWhereWithAggregatesInput | Prisma.ProfileScalarWhereWithAggregatesInput[]
+  id?: Prisma.StringWithAggregatesFilter<"Profile"> | string
+  profilePhoto?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
+  bio?: Prisma.StringNullableWithAggregatesFilter<"Profile"> | string | null
+  userId?: Prisma.StringWithAggregatesFilter<"Profile"> | string
 }
 
-export type profileCreateInput = {
+export type ProfileCreateInput = {
   id?: string
   profilePhoto?: string | null
   bio?: string | null
-  user: Prisma.userCreateNestedOneWithoutProfileInput
+  user: Prisma.UserCreateNestedOneWithoutProfileInput
 }
 
-export type profileUncheckedCreateInput = {
-  id?: string
-  profilePhoto?: string | null
-  bio?: string | null
-  userId: string
-}
-
-export type profileUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  user?: Prisma.userUpdateOneRequiredWithoutProfileNestedInput
-}
-
-export type profileUncheckedUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
-}
-
-export type profileCreateManyInput = {
+export type ProfileUncheckedCreateInput = {
   id?: string
   profilePhoto?: string | null
   bio?: string | null
   userId: string
 }
 
-export type profileUpdateManyMutationInput = {
+export type ProfileUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  user?: Prisma.UserUpdateOneRequiredWithoutProfileNestedInput
 }
 
-export type profileUncheckedUpdateManyInput = {
+export type ProfileUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type profileCountOrderByAggregateInput = {
+export type ProfileCreateManyInput = {
+  id?: string
+  profilePhoto?: string | null
+  bio?: string | null
+  userId: string
+}
+
+export type ProfileUpdateManyMutationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type ProfileUncheckedUpdateManyInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+export type ProfileCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   profilePhoto?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   userId?: Prisma.SortOrder
 }
 
-export type profileMaxOrderByAggregateInput = {
+export type ProfileMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   profilePhoto?: Prisma.SortOrder
   bio?: Prisma.SortOrder
   userId?: Prisma.SortOrder
 }
 
-export type profileMinOrderByAggregateInput = {
+export type ProfileMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   profilePhoto?: Prisma.SortOrder
   bio?: Prisma.SortOrder
@@ -286,85 +286,77 @@ export type profileMinOrderByAggregateInput = {
 }
 
 export type ProfileNullableScalarRelationFilter = {
-  is?: Prisma.profileWhereInput | null
-  isNot?: Prisma.profileWhereInput | null
+  is?: Prisma.ProfileWhereInput | null
+  isNot?: Prisma.ProfileWhereInput | null
 }
 
-export type StringFieldUpdateOperationsInput = {
-  set?: string
+export type ProfileCreateNestedOneWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.ProfileCreateWithoutUserInput, Prisma.ProfileUncheckedCreateWithoutUserInput>
+  connectOrCreate?: Prisma.ProfileCreateOrConnectWithoutUserInput
+  connect?: Prisma.ProfileWhereUniqueInput
 }
 
-export type NullableStringFieldUpdateOperationsInput = {
-  set?: string | null
+export type ProfileUncheckedCreateNestedOneWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.ProfileCreateWithoutUserInput, Prisma.ProfileUncheckedCreateWithoutUserInput>
+  connectOrCreate?: Prisma.ProfileCreateOrConnectWithoutUserInput
+  connect?: Prisma.ProfileWhereUniqueInput
 }
 
-export type profileCreateNestedOneWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.profileCreateWithoutUserInput, Prisma.profileUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.profileCreateOrConnectWithoutUserInput
-  connect?: Prisma.profileWhereUniqueInput
+export type ProfileUpdateOneWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.ProfileCreateWithoutUserInput, Prisma.ProfileUncheckedCreateWithoutUserInput>
+  connectOrCreate?: Prisma.ProfileCreateOrConnectWithoutUserInput
+  upsert?: Prisma.ProfileUpsertWithoutUserInput
+  disconnect?: Prisma.ProfileWhereInput | boolean
+  delete?: Prisma.ProfileWhereInput | boolean
+  connect?: Prisma.ProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProfileUpdateToOneWithWhereWithoutUserInput, Prisma.ProfileUpdateWithoutUserInput>, Prisma.ProfileUncheckedUpdateWithoutUserInput>
 }
 
-export type profileUncheckedCreateNestedOneWithoutUserInput = {
-  create?: Prisma.XOR<Prisma.profileCreateWithoutUserInput, Prisma.profileUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.profileCreateOrConnectWithoutUserInput
-  connect?: Prisma.profileWhereUniqueInput
+export type ProfileUncheckedUpdateOneWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.ProfileCreateWithoutUserInput, Prisma.ProfileUncheckedCreateWithoutUserInput>
+  connectOrCreate?: Prisma.ProfileCreateOrConnectWithoutUserInput
+  upsert?: Prisma.ProfileUpsertWithoutUserInput
+  disconnect?: Prisma.ProfileWhereInput | boolean
+  delete?: Prisma.ProfileWhereInput | boolean
+  connect?: Prisma.ProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProfileUpdateToOneWithWhereWithoutUserInput, Prisma.ProfileUpdateWithoutUserInput>, Prisma.ProfileUncheckedUpdateWithoutUserInput>
 }
 
-export type profileUpdateOneWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.profileCreateWithoutUserInput, Prisma.profileUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.profileCreateOrConnectWithoutUserInput
-  upsert?: Prisma.profileUpsertWithoutUserInput
-  disconnect?: Prisma.profileWhereInput | boolean
-  delete?: Prisma.profileWhereInput | boolean
-  connect?: Prisma.profileWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.profileUpdateToOneWithWhereWithoutUserInput, Prisma.profileUpdateWithoutUserInput>, Prisma.profileUncheckedUpdateWithoutUserInput>
-}
-
-export type profileUncheckedUpdateOneWithoutUserNestedInput = {
-  create?: Prisma.XOR<Prisma.profileCreateWithoutUserInput, Prisma.profileUncheckedCreateWithoutUserInput>
-  connectOrCreate?: Prisma.profileCreateOrConnectWithoutUserInput
-  upsert?: Prisma.profileUpsertWithoutUserInput
-  disconnect?: Prisma.profileWhereInput | boolean
-  delete?: Prisma.profileWhereInput | boolean
-  connect?: Prisma.profileWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.profileUpdateToOneWithWhereWithoutUserInput, Prisma.profileUpdateWithoutUserInput>, Prisma.profileUncheckedUpdateWithoutUserInput>
-}
-
-export type profileCreateWithoutUserInput = {
+export type ProfileCreateWithoutUserInput = {
   id?: string
   profilePhoto?: string | null
   bio?: string | null
 }
 
-export type profileUncheckedCreateWithoutUserInput = {
+export type ProfileUncheckedCreateWithoutUserInput = {
   id?: string
   profilePhoto?: string | null
   bio?: string | null
 }
 
-export type profileCreateOrConnectWithoutUserInput = {
-  where: Prisma.profileWhereUniqueInput
-  create: Prisma.XOR<Prisma.profileCreateWithoutUserInput, Prisma.profileUncheckedCreateWithoutUserInput>
+export type ProfileCreateOrConnectWithoutUserInput = {
+  where: Prisma.ProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProfileCreateWithoutUserInput, Prisma.ProfileUncheckedCreateWithoutUserInput>
 }
 
-export type profileUpsertWithoutUserInput = {
-  update: Prisma.XOR<Prisma.profileUpdateWithoutUserInput, Prisma.profileUncheckedUpdateWithoutUserInput>
-  create: Prisma.XOR<Prisma.profileCreateWithoutUserInput, Prisma.profileUncheckedCreateWithoutUserInput>
-  where?: Prisma.profileWhereInput
+export type ProfileUpsertWithoutUserInput = {
+  update: Prisma.XOR<Prisma.ProfileUpdateWithoutUserInput, Prisma.ProfileUncheckedUpdateWithoutUserInput>
+  create: Prisma.XOR<Prisma.ProfileCreateWithoutUserInput, Prisma.ProfileUncheckedCreateWithoutUserInput>
+  where?: Prisma.ProfileWhereInput
 }
 
-export type profileUpdateToOneWithWhereWithoutUserInput = {
-  where?: Prisma.profileWhereInput
-  data: Prisma.XOR<Prisma.profileUpdateWithoutUserInput, Prisma.profileUncheckedUpdateWithoutUserInput>
+export type ProfileUpdateToOneWithWhereWithoutUserInput = {
+  where?: Prisma.ProfileWhereInput
+  data: Prisma.XOR<Prisma.ProfileUpdateWithoutUserInput, Prisma.ProfileUncheckedUpdateWithoutUserInput>
 }
 
-export type profileUpdateWithoutUserInput = {
+export type ProfileUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
-export type profileUncheckedUpdateWithoutUserInput = {
+export type ProfileUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -372,52 +364,52 @@ export type profileUncheckedUpdateWithoutUserInput = {
 
 
 
-export type profileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type ProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   profilePhoto?: boolean
   bio?: boolean
   userId?: boolean
-  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["profile"]>
 
-export type profileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type ProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   profilePhoto?: boolean
   bio?: boolean
   userId?: boolean
-  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["profile"]>
 
-export type profileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+export type ProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   profilePhoto?: boolean
   bio?: boolean
   userId?: boolean
-  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["profile"]>
 
-export type profileSelectScalar = {
+export type ProfileSelectScalar = {
   id?: boolean
   profilePhoto?: boolean
   bio?: boolean
   userId?: boolean
 }
 
-export type profileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "profilePhoto" | "bio" | "userId", ExtArgs["result"]["profile"]>
-export type profileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+export type ProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "profilePhoto" | "bio" | "userId", ExtArgs["result"]["profile"]>
+export type ProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
-export type profileIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+export type ProfileIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
-export type profileIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  user?: boolean | Prisma.userDefaultArgs<ExtArgs>
+export type ProfileIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
 
-export type $profilePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  name: "profile"
+export type $ProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  name: "Profile"
   objects: {
-    user: Prisma.$userPayload<ExtArgs>
+    user: Prisma.$UserPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -428,18 +420,18 @@ export type $profilePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   composites: {}
 }
 
-export type profileGetPayload<S extends boolean | null | undefined | profileDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$profilePayload, S>
+export type ProfileGetPayload<S extends boolean | null | undefined | ProfileDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$ProfilePayload, S>
 
-export type profileCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
-  Omit<profileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+export type ProfileCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> =
+  Omit<ProfileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
     select?: ProfileCountAggregateInputType | true
   }
 
-export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['profile'], meta: { name: 'profile' } }
+export interface ProfileDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+  [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Profile'], meta: { name: 'Profile' } }
   /**
    * Find zero or one Profile that matches the filter.
-   * @param {profileFindUniqueArgs} args - Arguments to find a Profile
+   * @param {ProfileFindUniqueArgs} args - Arguments to find a Profile
    * @example
    * // Get one Profile
    * const profile = await prisma.profile.findUnique({
@@ -448,12 +440,12 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findUnique<T extends profileFindUniqueArgs>(args: Prisma.SelectSubset<T, profileFindUniqueArgs<ExtArgs>>): Prisma.Prisma__profileClient<runtime.Types.Result.GetResult<Prisma.$profilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findUnique<T extends ProfileFindUniqueArgs>(args: Prisma.SelectSubset<T, ProfileFindUniqueArgs<ExtArgs>>): Prisma.Prisma__ProfileClient<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find one Profile that matches the filter or throw an error with `error.code='P2025'`
    * if no matches were found.
-   * @param {profileFindUniqueOrThrowArgs} args - Arguments to find a Profile
+   * @param {ProfileFindUniqueOrThrowArgs} args - Arguments to find a Profile
    * @example
    * // Get one Profile
    * const profile = await prisma.profile.findUniqueOrThrow({
@@ -462,13 +454,13 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findUniqueOrThrow<T extends profileFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, profileFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__profileClient<runtime.Types.Result.GetResult<Prisma.$profilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findUniqueOrThrow<T extends ProfileFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, ProfileFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__ProfileClient<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Profile that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {profileFindFirstArgs} args - Arguments to find a Profile
+   * @param {ProfileFindFirstArgs} args - Arguments to find a Profile
    * @example
    * // Get one Profile
    * const profile = await prisma.profile.findFirst({
@@ -477,14 +469,14 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findFirst<T extends profileFindFirstArgs>(args?: Prisma.SelectSubset<T, profileFindFirstArgs<ExtArgs>>): Prisma.Prisma__profileClient<runtime.Types.Result.GetResult<Prisma.$profilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  findFirst<T extends ProfileFindFirstArgs>(args?: Prisma.SelectSubset<T, ProfileFindFirstArgs<ExtArgs>>): Prisma.Prisma__ProfileClient<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find the first Profile that matches the filter or
    * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {profileFindFirstOrThrowArgs} args - Arguments to find a Profile
+   * @param {ProfileFindFirstOrThrowArgs} args - Arguments to find a Profile
    * @example
    * // Get one Profile
    * const profile = await prisma.profile.findFirstOrThrow({
@@ -493,13 +485,13 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  findFirstOrThrow<T extends profileFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, profileFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__profileClient<runtime.Types.Result.GetResult<Prisma.$profilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  findFirstOrThrow<T extends ProfileFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, ProfileFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__ProfileClient<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Find zero or more Profiles that matches the filter.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {profileFindManyArgs} args - Arguments to filter and select certain fields only.
+   * @param {ProfileFindManyArgs} args - Arguments to filter and select certain fields only.
    * @example
    * // Get all Profiles
    * const profiles = await prisma.profile.findMany()
@@ -511,11 +503,11 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * const profileWithIdOnly = await prisma.profile.findMany({ select: { id: true } })
    * 
    */
-  findMany<T extends profileFindManyArgs>(args?: Prisma.SelectSubset<T, profileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$profilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+  findMany<T extends ProfileFindManyArgs>(args?: Prisma.SelectSubset<T, ProfileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
   /**
    * Create a Profile.
-   * @param {profileCreateArgs} args - Arguments to create a Profile.
+   * @param {ProfileCreateArgs} args - Arguments to create a Profile.
    * @example
    * // Create one Profile
    * const Profile = await prisma.profile.create({
@@ -525,11 +517,11 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  create<T extends profileCreateArgs>(args: Prisma.SelectSubset<T, profileCreateArgs<ExtArgs>>): Prisma.Prisma__profileClient<runtime.Types.Result.GetResult<Prisma.$profilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  create<T extends ProfileCreateArgs>(args: Prisma.SelectSubset<T, ProfileCreateArgs<ExtArgs>>): Prisma.Prisma__ProfileClient<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Create many Profiles.
-   * @param {profileCreateManyArgs} args - Arguments to create many Profiles.
+   * @param {ProfileCreateManyArgs} args - Arguments to create many Profiles.
    * @example
    * // Create many Profiles
    * const profile = await prisma.profile.createMany({
@@ -539,11 +531,11 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    *     
    */
-  createMany<T extends profileCreateManyArgs>(args?: Prisma.SelectSubset<T, profileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  createMany<T extends ProfileCreateManyArgs>(args?: Prisma.SelectSubset<T, ProfileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Create many Profiles and returns the data saved in the database.
-   * @param {profileCreateManyAndReturnArgs} args - Arguments to create many Profiles.
+   * @param {ProfileCreateManyAndReturnArgs} args - Arguments to create many Profiles.
    * @example
    * // Create many Profiles
    * const profile = await prisma.profile.createManyAndReturn({
@@ -563,11 +555,11 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  createManyAndReturn<T extends profileCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, profileCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$profilePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+  createManyAndReturn<T extends ProfileCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, ProfileCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Delete a Profile.
-   * @param {profileDeleteArgs} args - Arguments to delete one Profile.
+   * @param {ProfileDeleteArgs} args - Arguments to delete one Profile.
    * @example
    * // Delete one Profile
    * const Profile = await prisma.profile.delete({
@@ -577,11 +569,11 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  delete<T extends profileDeleteArgs>(args: Prisma.SelectSubset<T, profileDeleteArgs<ExtArgs>>): Prisma.Prisma__profileClient<runtime.Types.Result.GetResult<Prisma.$profilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  delete<T extends ProfileDeleteArgs>(args: Prisma.SelectSubset<T, ProfileDeleteArgs<ExtArgs>>): Prisma.Prisma__ProfileClient<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Update one Profile.
-   * @param {profileUpdateArgs} args - Arguments to update one Profile.
+   * @param {ProfileUpdateArgs} args - Arguments to update one Profile.
    * @example
    * // Update one Profile
    * const profile = await prisma.profile.update({
@@ -594,11 +586,11 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  update<T extends profileUpdateArgs>(args: Prisma.SelectSubset<T, profileUpdateArgs<ExtArgs>>): Prisma.Prisma__profileClient<runtime.Types.Result.GetResult<Prisma.$profilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  update<T extends ProfileUpdateArgs>(args: Prisma.SelectSubset<T, ProfileUpdateArgs<ExtArgs>>): Prisma.Prisma__ProfileClient<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
   /**
    * Delete zero or more Profiles.
-   * @param {profileDeleteManyArgs} args - Arguments to filter Profiles to delete.
+   * @param {ProfileDeleteManyArgs} args - Arguments to filter Profiles to delete.
    * @example
    * // Delete a few Profiles
    * const { count } = await prisma.profile.deleteMany({
@@ -608,13 +600,13 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  deleteMany<T extends profileDeleteManyArgs>(args?: Prisma.SelectSubset<T, profileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  deleteMany<T extends ProfileDeleteManyArgs>(args?: Prisma.SelectSubset<T, ProfileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Profiles.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {profileUpdateManyArgs} args - Arguments to update one or more rows.
+   * @param {ProfileUpdateManyArgs} args - Arguments to update one or more rows.
    * @example
    * // Update many Profiles
    * const profile = await prisma.profile.updateMany({
@@ -627,11 +619,11 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * })
    * 
    */
-  updateMany<T extends profileUpdateManyArgs>(args: Prisma.SelectSubset<T, profileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
+  updateMany<T extends ProfileUpdateManyArgs>(args: Prisma.SelectSubset<T, ProfileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
   /**
    * Update zero or more Profiles and returns the data updated in the database.
-   * @param {profileUpdateManyAndReturnArgs} args - Arguments to update many Profiles.
+   * @param {ProfileUpdateManyAndReturnArgs} args - Arguments to update many Profiles.
    * @example
    * // Update many Profiles
    * const profile = await prisma.profile.updateManyAndReturn({
@@ -657,11 +649,11 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * Read more here: https://pris.ly/d/null-undefined
    * 
    */
-  updateManyAndReturn<T extends profileUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, profileUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$profilePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+  updateManyAndReturn<T extends ProfileUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, ProfileUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
   /**
    * Create or update one Profile.
-   * @param {profileUpsertArgs} args - Arguments to update or create a Profile.
+   * @param {ProfileUpsertArgs} args - Arguments to update or create a Profile.
    * @example
    * // Update or create a Profile
    * const profile = await prisma.profile.upsert({
@@ -676,14 +668,14 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
    */
-  upsert<T extends profileUpsertArgs>(args: Prisma.SelectSubset<T, profileUpsertArgs<ExtArgs>>): Prisma.Prisma__profileClient<runtime.Types.Result.GetResult<Prisma.$profilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+  upsert<T extends ProfileUpsertArgs>(args: Prisma.SelectSubset<T, ProfileUpsertArgs<ExtArgs>>): Prisma.Prisma__ProfileClient<runtime.Types.Result.GetResult<Prisma.$ProfilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
   /**
    * Count the number of Profiles.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {profileCountArgs} args - Arguments to filter Profiles to count.
+   * @param {ProfileCountArgs} args - Arguments to filter Profiles to count.
    * @example
    * // Count the number of Profiles
    * const count = await prisma.profile.count({
@@ -692,8 +684,8 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    *   }
    * })
   **/
-  count<T extends profileCountArgs>(
-    args?: Prisma.Subset<T, profileCountArgs>,
+  count<T extends ProfileCountArgs>(
+    args?: Prisma.Subset<T, ProfileCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
       ? T['select'] extends true
@@ -732,7 +724,7 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * Group by Profile.
    * Note, that providing `undefined` is treated as the value not being there.
    * Read more here: https://pris.ly/d/null-undefined
-   * @param {profileGroupByArgs} args - Group by arguments.
+   * @param {ProfileGroupByArgs} args - Group by arguments.
    * @example
    * // Group by city, order by createdAt, get count
    * const result = await prisma.user.groupBy({
@@ -747,14 +739,14 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
    * 
   **/
   groupBy<
-    T extends profileGroupByArgs,
+    T extends ProfileGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
       Prisma.Extends<'skip', Prisma.Keys<T>>,
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: profileGroupByArgs['orderBy'] }
-      : { orderBy?: profileGroupByArgs['orderBy'] },
+      ? { orderBy: ProfileGroupByArgs['orderBy'] }
+      : { orderBy?: ProfileGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -803,22 +795,22 @@ export interface profileDelegate<ExtArgs extends runtime.Types.Extensions.Intern
           ? never
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
-  >(args: Prisma.SubsetIntersection<T, profileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  >(args: Prisma.SubsetIntersection<T, ProfileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
 /**
- * Fields of the profile model
+ * Fields of the Profile model
  */
-readonly fields: profileFieldRefs;
+readonly fields: ProfileFieldRefs;
 }
 
 /**
- * The delegate class that acts as a "Promise-like" for profile.
+ * The delegate class that acts as a "Promise-like" for Profile.
  * Why is this prefixed with `Prisma__`?
  * Because we want to prevent naming conflicts as mentioned in
  * https://github.com/prisma/prisma-client-js/issues/707
  */
-export interface Prisma__profileClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+export interface Prisma__ProfileClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  user<T extends Prisma.userDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.userDefaultArgs<ExtArgs>>): Prisma.Prisma__userClient<runtime.Types.Result.GetResult<Prisma.$userPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -845,427 +837,427 @@ export interface Prisma__profileClient<T, Null = never, ExtArgs extends runtime.
 
 
 /**
- * Fields of the profile model
+ * Fields of the Profile model
  */
-export interface profileFieldRefs {
-  readonly id: Prisma.FieldRef<"profile", 'String'>
-  readonly profilePhoto: Prisma.FieldRef<"profile", 'String'>
-  readonly bio: Prisma.FieldRef<"profile", 'String'>
-  readonly userId: Prisma.FieldRef<"profile", 'String'>
+export interface ProfileFieldRefs {
+  readonly id: Prisma.FieldRef<"Profile", 'String'>
+  readonly profilePhoto: Prisma.FieldRef<"Profile", 'String'>
+  readonly bio: Prisma.FieldRef<"Profile", 'String'>
+  readonly userId: Prisma.FieldRef<"Profile", 'String'>
 }
     
 
 // Custom InputTypes
 /**
- * profile findUnique
+ * Profile findUnique
  */
-export type profileFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the profile
+   * Select specific fields to fetch from the Profile
    */
-  select?: Prisma.profileSelect<ExtArgs> | null
+  select?: Prisma.ProfileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the profile
+   * Omit specific fields from the Profile
    */
-  omit?: Prisma.profileOmit<ExtArgs> | null
+  omit?: Prisma.ProfileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.profileInclude<ExtArgs> | null
+  include?: Prisma.ProfileInclude<ExtArgs> | null
   /**
-   * Filter, which profile to fetch.
+   * Filter, which Profile to fetch.
    */
-  where: Prisma.profileWhereUniqueInput
+  where: Prisma.ProfileWhereUniqueInput
 }
 
 /**
- * profile findUniqueOrThrow
+ * Profile findUniqueOrThrow
  */
-export type profileFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the profile
+   * Select specific fields to fetch from the Profile
    */
-  select?: Prisma.profileSelect<ExtArgs> | null
+  select?: Prisma.ProfileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the profile
+   * Omit specific fields from the Profile
    */
-  omit?: Prisma.profileOmit<ExtArgs> | null
+  omit?: Prisma.ProfileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.profileInclude<ExtArgs> | null
+  include?: Prisma.ProfileInclude<ExtArgs> | null
   /**
-   * Filter, which profile to fetch.
+   * Filter, which Profile to fetch.
    */
-  where: Prisma.profileWhereUniqueInput
+  where: Prisma.ProfileWhereUniqueInput
 }
 
 /**
- * profile findFirst
+ * Profile findFirst
  */
-export type profileFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the profile
+   * Select specific fields to fetch from the Profile
    */
-  select?: Prisma.profileSelect<ExtArgs> | null
+  select?: Prisma.ProfileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the profile
+   * Omit specific fields from the Profile
    */
-  omit?: Prisma.profileOmit<ExtArgs> | null
+  omit?: Prisma.ProfileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.profileInclude<ExtArgs> | null
+  include?: Prisma.ProfileInclude<ExtArgs> | null
   /**
-   * Filter, which profile to fetch.
+   * Filter, which Profile to fetch.
    */
-  where?: Prisma.profileWhereInput
+  where?: Prisma.ProfileWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of profiles to fetch.
+   * Determine the order of Profiles to fetch.
    */
-  orderBy?: Prisma.profileOrderByWithRelationInput | Prisma.profileOrderByWithRelationInput[]
+  orderBy?: Prisma.ProfileOrderByWithRelationInput | Prisma.ProfileOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for profiles.
+   * Sets the position for searching for Profiles.
    */
-  cursor?: Prisma.profileWhereUniqueInput
+  cursor?: Prisma.ProfileWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` profiles from the position of the cursor.
+   * Take `±n` Profiles from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` profiles.
+   * Skip the first `n` Profiles.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of profiles.
+   * Filter by unique combinations of Profiles.
    */
   distinct?: Prisma.ProfileScalarFieldEnum | Prisma.ProfileScalarFieldEnum[]
 }
 
 /**
- * profile findFirstOrThrow
+ * Profile findFirstOrThrow
  */
-export type profileFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the profile
+   * Select specific fields to fetch from the Profile
    */
-  select?: Prisma.profileSelect<ExtArgs> | null
+  select?: Prisma.ProfileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the profile
+   * Omit specific fields from the Profile
    */
-  omit?: Prisma.profileOmit<ExtArgs> | null
+  omit?: Prisma.ProfileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.profileInclude<ExtArgs> | null
+  include?: Prisma.ProfileInclude<ExtArgs> | null
   /**
-   * Filter, which profile to fetch.
+   * Filter, which Profile to fetch.
    */
-  where?: Prisma.profileWhereInput
+  where?: Prisma.ProfileWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of profiles to fetch.
+   * Determine the order of Profiles to fetch.
    */
-  orderBy?: Prisma.profileOrderByWithRelationInput | Prisma.profileOrderByWithRelationInput[]
+  orderBy?: Prisma.ProfileOrderByWithRelationInput | Prisma.ProfileOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for searching for profiles.
+   * Sets the position for searching for Profiles.
    */
-  cursor?: Prisma.profileWhereUniqueInput
+  cursor?: Prisma.ProfileWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` profiles from the position of the cursor.
+   * Take `±n` Profiles from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` profiles.
+   * Skip the first `n` Profiles.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of profiles.
+   * Filter by unique combinations of Profiles.
    */
   distinct?: Prisma.ProfileScalarFieldEnum | Prisma.ProfileScalarFieldEnum[]
 }
 
 /**
- * profile findMany
+ * Profile findMany
  */
-export type profileFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the profile
+   * Select specific fields to fetch from the Profile
    */
-  select?: Prisma.profileSelect<ExtArgs> | null
+  select?: Prisma.ProfileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the profile
+   * Omit specific fields from the Profile
    */
-  omit?: Prisma.profileOmit<ExtArgs> | null
+  omit?: Prisma.ProfileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.profileInclude<ExtArgs> | null
+  include?: Prisma.ProfileInclude<ExtArgs> | null
   /**
-   * Filter, which profiles to fetch.
+   * Filter, which Profiles to fetch.
    */
-  where?: Prisma.profileWhereInput
+  where?: Prisma.ProfileWhereInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
    * 
-   * Determine the order of profiles to fetch.
+   * Determine the order of Profiles to fetch.
    */
-  orderBy?: Prisma.profileOrderByWithRelationInput | Prisma.profileOrderByWithRelationInput[]
+  orderBy?: Prisma.ProfileOrderByWithRelationInput | Prisma.ProfileOrderByWithRelationInput[]
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
    * 
-   * Sets the position for listing profiles.
+   * Sets the position for listing Profiles.
    */
-  cursor?: Prisma.profileWhereUniqueInput
+  cursor?: Prisma.ProfileWhereUniqueInput
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Take `±n` profiles from the position of the cursor.
+   * Take `±n` Profiles from the position of the cursor.
    */
   take?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
    * 
-   * Skip the first `n` profiles.
+   * Skip the first `n` Profiles.
    */
   skip?: number
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
    * 
-   * Filter by unique combinations of profiles.
+   * Filter by unique combinations of Profiles.
    */
   distinct?: Prisma.ProfileScalarFieldEnum | Prisma.ProfileScalarFieldEnum[]
 }
 
 /**
- * profile create
+ * Profile create
  */
-export type profileCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the profile
+   * Select specific fields to fetch from the Profile
    */
-  select?: Prisma.profileSelect<ExtArgs> | null
+  select?: Prisma.ProfileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the profile
+   * Omit specific fields from the Profile
    */
-  omit?: Prisma.profileOmit<ExtArgs> | null
+  omit?: Prisma.ProfileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.profileInclude<ExtArgs> | null
+  include?: Prisma.ProfileInclude<ExtArgs> | null
   /**
-   * The data needed to create a profile.
+   * The data needed to create a Profile.
    */
-  data: Prisma.XOR<Prisma.profileCreateInput, Prisma.profileUncheckedCreateInput>
+  data: Prisma.XOR<Prisma.ProfileCreateInput, Prisma.ProfileUncheckedCreateInput>
 }
 
 /**
- * profile createMany
+ * Profile createMany
  */
-export type profileCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to create many profiles.
+   * The data used to create many Profiles.
    */
-  data: Prisma.profileCreateManyInput | Prisma.profileCreateManyInput[]
+  data: Prisma.ProfileCreateManyInput | Prisma.ProfileCreateManyInput[]
   skipDuplicates?: boolean
 }
 
 /**
- * profile createManyAndReturn
+ * Profile createManyAndReturn
  */
-export type profileCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the profile
+   * Select specific fields to fetch from the Profile
    */
-  select?: Prisma.profileSelectCreateManyAndReturn<ExtArgs> | null
+  select?: Prisma.ProfileSelectCreateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the profile
+   * Omit specific fields from the Profile
    */
-  omit?: Prisma.profileOmit<ExtArgs> | null
+  omit?: Prisma.ProfileOmit<ExtArgs> | null
   /**
-   * The data used to create many profiles.
+   * The data used to create many Profiles.
    */
-  data: Prisma.profileCreateManyInput | Prisma.profileCreateManyInput[]
+  data: Prisma.ProfileCreateManyInput | Prisma.ProfileCreateManyInput[]
   skipDuplicates?: boolean
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.profileIncludeCreateManyAndReturn<ExtArgs> | null
+  include?: Prisma.ProfileIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
- * profile update
+ * Profile update
  */
-export type profileUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the profile
+   * Select specific fields to fetch from the Profile
    */
-  select?: Prisma.profileSelect<ExtArgs> | null
+  select?: Prisma.ProfileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the profile
+   * Omit specific fields from the Profile
    */
-  omit?: Prisma.profileOmit<ExtArgs> | null
+  omit?: Prisma.ProfileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.profileInclude<ExtArgs> | null
+  include?: Prisma.ProfileInclude<ExtArgs> | null
   /**
-   * The data needed to update a profile.
+   * The data needed to update a Profile.
    */
-  data: Prisma.XOR<Prisma.profileUpdateInput, Prisma.profileUncheckedUpdateInput>
+  data: Prisma.XOR<Prisma.ProfileUpdateInput, Prisma.ProfileUncheckedUpdateInput>
   /**
-   * Choose, which profile to update.
+   * Choose, which Profile to update.
    */
-  where: Prisma.profileWhereUniqueInput
+  where: Prisma.ProfileWhereUniqueInput
 }
 
 /**
- * profile updateMany
+ * Profile updateMany
  */
-export type profileUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * The data used to update profiles.
+   * The data used to update Profiles.
    */
-  data: Prisma.XOR<Prisma.profileUpdateManyMutationInput, Prisma.profileUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.ProfileUpdateManyMutationInput, Prisma.ProfileUncheckedUpdateManyInput>
   /**
-   * Filter which profiles to update
+   * Filter which Profiles to update
    */
-  where?: Prisma.profileWhereInput
+  where?: Prisma.ProfileWhereInput
   /**
-   * Limit how many profiles to update.
+   * Limit how many Profiles to update.
    */
   limit?: number
 }
 
 /**
- * profile updateManyAndReturn
+ * Profile updateManyAndReturn
  */
-export type profileUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the profile
+   * Select specific fields to fetch from the Profile
    */
-  select?: Prisma.profileSelectUpdateManyAndReturn<ExtArgs> | null
+  select?: Prisma.ProfileSelectUpdateManyAndReturn<ExtArgs> | null
   /**
-   * Omit specific fields from the profile
+   * Omit specific fields from the Profile
    */
-  omit?: Prisma.profileOmit<ExtArgs> | null
+  omit?: Prisma.ProfileOmit<ExtArgs> | null
   /**
-   * The data used to update profiles.
+   * The data used to update Profiles.
    */
-  data: Prisma.XOR<Prisma.profileUpdateManyMutationInput, Prisma.profileUncheckedUpdateManyInput>
+  data: Prisma.XOR<Prisma.ProfileUpdateManyMutationInput, Prisma.ProfileUncheckedUpdateManyInput>
   /**
-   * Filter which profiles to update
+   * Filter which Profiles to update
    */
-  where?: Prisma.profileWhereInput
+  where?: Prisma.ProfileWhereInput
   /**
-   * Limit how many profiles to update.
+   * Limit how many Profiles to update.
    */
   limit?: number
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.profileIncludeUpdateManyAndReturn<ExtArgs> | null
+  include?: Prisma.ProfileIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
- * profile upsert
+ * Profile upsert
  */
-export type profileUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the profile
+   * Select specific fields to fetch from the Profile
    */
-  select?: Prisma.profileSelect<ExtArgs> | null
+  select?: Prisma.ProfileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the profile
+   * Omit specific fields from the Profile
    */
-  omit?: Prisma.profileOmit<ExtArgs> | null
+  omit?: Prisma.ProfileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.profileInclude<ExtArgs> | null
+  include?: Prisma.ProfileInclude<ExtArgs> | null
   /**
-   * The filter to search for the profile to update in case it exists.
+   * The filter to search for the Profile to update in case it exists.
    */
-  where: Prisma.profileWhereUniqueInput
+  where: Prisma.ProfileWhereUniqueInput
   /**
-   * In case the profile found by the `where` argument doesn't exist, create a new profile with this data.
+   * In case the Profile found by the `where` argument doesn't exist, create a new Profile with this data.
    */
-  create: Prisma.XOR<Prisma.profileCreateInput, Prisma.profileUncheckedCreateInput>
+  create: Prisma.XOR<Prisma.ProfileCreateInput, Prisma.ProfileUncheckedCreateInput>
   /**
-   * In case the profile was found with the provided `where` argument, update it with this data.
+   * In case the Profile was found with the provided `where` argument, update it with this data.
    */
-  update: Prisma.XOR<Prisma.profileUpdateInput, Prisma.profileUncheckedUpdateInput>
+  update: Prisma.XOR<Prisma.ProfileUpdateInput, Prisma.ProfileUncheckedUpdateInput>
 }
 
 /**
- * profile delete
+ * Profile delete
  */
-export type profileDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the profile
+   * Select specific fields to fetch from the Profile
    */
-  select?: Prisma.profileSelect<ExtArgs> | null
+  select?: Prisma.ProfileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the profile
+   * Omit specific fields from the Profile
    */
-  omit?: Prisma.profileOmit<ExtArgs> | null
+  omit?: Prisma.ProfileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.profileInclude<ExtArgs> | null
+  include?: Prisma.ProfileInclude<ExtArgs> | null
   /**
-   * Filter which profile to delete.
+   * Filter which Profile to delete.
    */
-  where: Prisma.profileWhereUniqueInput
+  where: Prisma.ProfileWhereUniqueInput
 }
 
 /**
- * profile deleteMany
+ * Profile deleteMany
  */
-export type profileDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Filter which profiles to delete
+   * Filter which Profiles to delete
    */
-  where?: Prisma.profileWhereInput
+  where?: Prisma.ProfileWhereInput
   /**
-   * Limit how many profiles to delete.
+   * Limit how many Profiles to delete.
    */
   limit?: number
 }
 
 /**
- * profile without action
+ * Profile without action
  */
-export type profileDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type ProfileDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the profile
+   * Select specific fields to fetch from the Profile
    */
-  select?: Prisma.profileSelect<ExtArgs> | null
+  select?: Prisma.ProfileSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the profile
+   * Omit specific fields from the Profile
    */
-  omit?: Prisma.profileOmit<ExtArgs> | null
+  omit?: Prisma.ProfileOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.profileInclude<ExtArgs> | null
+  include?: Prisma.ProfileInclude<ExtArgs> | null
 }

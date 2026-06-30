@@ -5,7 +5,6 @@ import {
 import bcrypt from "bcrypt";
 import { prisma } from "../../lib/prisma";
 import { ILoginUser } from "./auth.interface";
-import jwt from "jsonwebtoken";
 import config from "../../config";
 import { jwtUtils } from "../../utils/jwt";
 

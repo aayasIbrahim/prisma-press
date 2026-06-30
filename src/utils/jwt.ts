@@ -8,8 +8,8 @@ const createToken = (
   const token = jwt.sign(payload, secret, { expiresIn } as SignOptions);
   return token;
 };
-const verifyToken = (token: string, secret: Secret) => {
-    try {
+const verifyToken = (token : string, secret : string) => {
+   try {
         const verifiedToken = jwt.verify(token, secret);
         return {
             success: true,
@@ -22,7 +22,8 @@ const verifyToken = (token: string, secret: Secret) => {
             error : error.message
         }
    }
-};
+}
+
 export const jwtUtils = {
   createToken,
   verifyToken,

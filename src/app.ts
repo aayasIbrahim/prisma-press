@@ -1,10 +1,11 @@
 import express, { Application, Request, Response } from "express";
-import config from "./src/config";
+import config from "./config";
 import cors from "cors";
 import cookieParse from "cookie-parser";
 
-import { userRouter } from "./src/modules/user/user.route";
-import { authRouter } from "./src/modules/auth/auth.router";
+import { userRouter } from "./modules/user/user.route";
+import { authRouter } from "./modules/auth/auth.router";
+import { postRoutes } from "./modules/post/post.route";
 
 const app: Application = express();
 app.use(
@@ -21,6 +22,7 @@ app.get("/", (req: Request, res: Response) => {
   res.send("hello Word");
 });
 app.use("/api/users", userRouter);
-app.use("/api/users", authRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/posts", postRoutes);
 
 export default app;

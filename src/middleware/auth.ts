@@ -26,7 +26,6 @@ export const auth = (...requiredRoles: Role[]) => {
       : req.headers.authorization?.startsWith("Bearer ")
         ? req.headers.authorization?.split(" ")[1]
         : req.headers.authorization;
-
     if (!token) {
       throw new Error(
         "You are not logged in. Please log in to access this resource.",
@@ -35,8 +34,8 @@ export const auth = (...requiredRoles: Role[]) => {
 
     const verifiedToken = jwtUtils.verifyToken(token, config.jwt_access_secret);
 
-    if (!verifiedToken.error) {
-      throw new Error("Invaild Token");
+    if (verifiedToken.error) {
+      throw new Error(verifiedToken.error);
     }
 
     const { email, name, id, role } = verifiedToken.data as JwtPayload;
