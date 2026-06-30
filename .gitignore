@@ -1,5 +1,5 @@
 node_modules
 dist
-
-prisma/generated/prisma
+generated
 .env
+/generated/prisma
