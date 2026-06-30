@@ -32,7 +32,29 @@ const loginUser = catchAsync(
     });
   },
 );
+const refreshToken = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const refreshToken = req.cookies.refreshToken;
+    const { newAccessToken } = await authService.refreshToken(refreshToken);
+
+    res.cookie("accessToken", newAccessToken, {
+      httpOnly: true,
+      secure: false,
+      sameSite: "none",
+      maxAge: 1000 * 60 * 60 * 24, // 24 hour or 1 day
+    });
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "Token Refreshed Successfully",
+      data: {
+        newAccessToken,
+      },
+    });
+  },
+);
 
 export const authController = {
   loginUser,
+  refreshToken,
 };
