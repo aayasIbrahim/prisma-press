@@ -3,12 +3,22 @@ import { postController } from "./post.controller";
 import { auth } from "../../middleware/auth";
 import { Role } from "../../../prisma/generated/prisma/enums";
 
-const route = Router();
-route.post(
+const router = Router();
+router.post(
   "/",
   auth(Role.USER, Role.ADMIN, Role.AUTHOR),
   postController.createPost,
 );
-route.get("/", postController.getAllPosts);
-route.get("/:postId", postController.getSinglePosts);
-export const postRoutes = route;
+router.get("/", postController.getAllPosts);
+router.get("/:postId", postController.getSinglePosts);
+router.patch(
+  "/:postId",
+  auth(Role.USER, Role.ADMIN),
+  postController.updatePost,
+);
+router.delete(
+  "/:postId",
+  auth(Role.ADMIN, Role.USER),
+  postController.deletePost,
+);
+export const postRoutes = router;
