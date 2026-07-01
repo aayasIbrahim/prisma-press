@@ -24,8 +24,10 @@ const registerUser = catchAsync(
 const getMyProfile = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const { accessToken } = req.cookies;
+
     const token = jwtUtils.verifyToken(accessToken, config.jwt_access_secret);
-    const { id } = token as JwtPayload;
+    const { id } = token.data as JwtPayload;
+
     const profile = await userService.getMyProfileIntoDB(id);
 
     sendResponse(res, {
@@ -47,7 +49,7 @@ const updateMyProfile = catchAsync(
       success: true,
       statusCode: httpStatus.OK,
       message: "Profile Updated Successfully",
-      data: { result },
+      data:  result ,
     });
   },
 );
