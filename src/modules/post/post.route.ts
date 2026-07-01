@@ -10,4 +10,5 @@ route.post(
   postController.createPost,
 );
 route.get("/", postController.getAllPosts);
+route.get("/:postId", postController.getSinglePosts);
 export const postRoutes = route;

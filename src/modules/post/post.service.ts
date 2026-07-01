@@ -28,7 +28,48 @@ const getAllPosts = async () => {
   });
   return result;
 };
+const getSinglePost = async (postId: string) => {
+  ///when see single post view ++ logic
+  await prisma.post.update({
+    where: {
+      id: postId,
+    },
+    data: {
+      views: {
+        increment: 1,
+      },
+    },
+  });
+  const post = await prisma.post.findUniqueOrThrow({
+    where: {
+      id: postId,
+    },
+    omit: {
+      authorId: true,
+      createdAt: true,
+      updatedAt: true,
+      status: true,
+      tags: true,
+      isFeatured: true,
+      thumbnail: true,
+    },
+    include: {
+      comments: {
+        orderBy: {
+          createdAt: "desc",
+        },
+      },
+      _count: {
+        select: {
+          comments: true,
+        },
+      },
+    },
+  });
+  return post;
+};
 export const postService = {
   createPost,
   getAllPosts,
+  getSinglePost,
 };
