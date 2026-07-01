@@ -42,7 +42,12 @@ const registerUserIntoDB = async (payload: IRegisterUser) => {
 
     include: {
       // Include related profile data (similar to SQL LEFT JOIN)
-      profile: true,
+      profile: {
+        omit: {
+          id: true,
+          userId: true,
+        },
+      },
     },
   });
   return user;

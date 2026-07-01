@@ -15,9 +15,7 @@ const registerUser = catchAsync(
       success: true,
       statusCode: httpStatus.CREATED,
       message: "User Registation Successfully",
-      data: {
-        user,
-      },
+      data: user,
     });
   },
 );
@@ -49,7 +47,7 @@ const updateMyProfile = catchAsync(
       success: true,
       statusCode: httpStatus.OK,
       message: "Profile Updated Successfully",
-      data:  result ,
+      data: result,
     });
   },
 );
