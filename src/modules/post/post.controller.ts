@@ -7,7 +7,7 @@ import { sendResponse } from "../../utils/sendResponse";
 const createPost = catchAsync(async (req: Request, res: Response) => {
   const id = req.user?.id;
   const paylaod = req.body;
-  console.log(id, "id form create post in controller");
+  
   const result = await postService.createPost(paylaod, id as string);
   sendResponse(res, {
     success: true,

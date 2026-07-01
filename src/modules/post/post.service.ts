@@ -30,44 +30,87 @@ const getAllPosts = async () => {
   return result;
 };
 const getSinglePost = async (postId: string) => {
-  ///when see single post view ++ logic
-  await prisma.post.update({
-    where: {
-      id: postId,
-    },
-    data: {
-      views: {
-        increment: 1,
+  // ///when see single post view ++ logic
+  // await prisma.post.update({
+  //   where: {
+  //     id: postId,
+  //   },
+  //   data: {
+  //     views: {
+  //       increment: 1,
+  //     },
+  //   },
+  // });
+  // // throw new Error("Fake Error");
+  // const post = await prisma.post.findUniqueOrThrow({
+  //   where: {
+  //     id: postId,
+  //   },
+  //   omit: {
+  //     authorId: true,
+  //     createdAt: true,
+  //     updatedAt: true,
+  //     status: true,
+  //     tags: true,
+  //     isFeatured: true,
+  //     thumbnail: true,
+  //   },
+  //   include: {
+  //     comments: {
+  //       orderBy: {
+  //         createdAt: "desc",
+  //       },
+  //     },
+  //     _count: {
+  //       select: {
+  //         comments: true,
+  //       },
+  //     },
+  //   },
+  // });
+  //return post;
+
+  const transictionResult = await prisma.$transaction(async (tx) => {
+    await tx.post.update({
+      where: {
+        id: postId,
       },
-    },
-  });
-  const post = await prisma.post.findUniqueOrThrow({
-    where: {
-      id: postId,
-    },
-    omit: {
-      authorId: true,
-      createdAt: true,
-      updatedAt: true,
-      status: true,
-      tags: true,
-      isFeatured: true,
-      thumbnail: true,
-    },
-    include: {
-      comments: {
-        orderBy: {
-          createdAt: "desc",
+      data: {
+        views: {
+          increment: 1,
         },
       },
-      _count: {
-        select: {
-          comments: true,
+    });
+
+    const post = await tx.post.findUniqueOrThrow({
+      where: {
+        id: postId,
+      },
+      omit: {
+        authorId: true,
+        createdAt: true,
+        updatedAt: true,
+        status: true,
+        tags: true,
+        isFeatured: true,
+        thumbnail: true,
+      },
+      include: {
+        comments: {
+          orderBy: {
+            createdAt: "desc",
+          },
+        },
+        _count: {
+          select: {
+            comments: true,
+          },
         },
       },
-    },
+    });
+    return post;
   });
-  return post;
+  return transictionResult;
 };
 const updatePost = async (
   postId: string,
