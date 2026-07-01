@@ -10,12 +10,13 @@ router.post(
   postController.createPost,
 );
 router.get("/", postController.getAllPosts);
-router.get("/:postId", postController.getSinglePosts);
+// router.get("/:postId", postController.getSinglePosts);
 router.patch(
   "/:postId",
   auth(Role.USER, Role.ADMIN),
   postController.updatePost,
 );
+router.get("/stats", auth(Role.ADMIN), postController.getPostStats);
 router.delete(
   "/:postId",
   auth(Role.ADMIN, Role.USER),

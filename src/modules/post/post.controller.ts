@@ -7,7 +7,7 @@ import { sendResponse } from "../../utils/sendResponse";
 const createPost = catchAsync(async (req: Request, res: Response) => {
   const id = req.user?.id;
   const paylaod = req.body;
-  
+
   const result = await postService.createPost(paylaod, id as string);
   sendResponse(res, {
     success: true,
@@ -61,12 +61,21 @@ const updatePost = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
-
+const getPostStats = catchAsync(async (req: Request, res: Response) => {
+  
+  const result = await postService.getPostStats();
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Post stats retrieved successfully",
+    data: result,
+  });
+});
 const deletePost = catchAsync(async (req: Request, res: Response) => {
   const authorId = req.user?.id;
   const isAdmin = req.user?.role === "ADMIN";
   const postId = req.params.postId;
-  await postService.deletePost(postId as string,authorId as string,isAdmin);
+  await postService.deletePost(postId as string, authorId as string, isAdmin);
 
   sendResponse(res, {
     success: true,
@@ -80,5 +89,6 @@ export const postController = {
   getAllPosts,
   getSinglePosts,
   updatePost,
+  getPostStats,
   deletePost,
 };

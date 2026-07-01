@@ -1,6 +1,11 @@
 import { privateDecrypt } from "node:crypto";
 import { prisma } from "../../lib/prisma";
 import { ICreatePostPayload, IUpdatePostPayload } from "./post.interface";
+import {
+  CommentStatus,
+  PostStatus,
+  Role,
+} from "../../../prisma/generated/prisma/enums";
 
 const createPost = async (payload: ICreatePostPayload, userId: string) => {
   const result = await prisma.post.create({
@@ -147,6 +152,76 @@ const updatePost = async (
   });
   return result;
 };
+const getPostStats = async () => {
+  const result = await prisma.$transaction(async (tx) => {
+    const [
+      totalPosts,
+      totalPublicPost,
+      totalDraftPosts,
+      totalArchivedposts,
+      totalComments,
+      totalApprovedComment,
+      totalUser,
+      totalAdminUser,
+      totalregularUser,
+      totalPostViewsAggregate,
+    ] = await Promise.all([
+      await tx.post.count(),
+      await tx.post.count({
+        where: {
+          status: PostStatus.PUBLISHED,
+        },
+      }),
+      await tx.post.count({
+        where: {
+          status: PostStatus.DRAFT,
+        },
+      }),
+      await tx.post.count({
+        where: {
+          status: PostStatus.ARCHIVED,
+        },
+      }),
+      await tx.comment.count(),
+      await tx.comment.count({
+        where: {
+          status: CommentStatus.APPROVED,
+        },
+      }),
+      await tx.user.count(),
+      await tx.user.count({
+        where: {
+          role: Role.ADMIN,
+        },
+      }),
+      await tx.user.count({
+        where: {
+          role: Role.USER,
+        },
+      }),
+      await tx.post.aggregate({
+        _count: {
+          views: true,
+        },
+      }),
+    ]);
+
+    return {
+      totalPosts,
+      totalPublicPost,
+      totalDraftPosts,
+      totalArchivedposts,
+      totalComments,
+      totalApprovedComment,
+      totalUser,
+      totalAdminUser,
+      totalregularUser,
+      totalPostViewsAggregate,
+    };
+  });
+  return result;
+};
+
 const deletePost = async (
   postId: string,
   authorId: string,
@@ -173,5 +248,6 @@ export const postService = {
   getAllPosts,
   getSinglePost,
   updatePost,
+  getPostStats,
   deletePost,
 };
