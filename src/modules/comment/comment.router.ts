@@ -10,5 +10,21 @@ router.post(
   commentController.createComment,
 );
 router.get("/author/:authorId", commentController.getCommentByAuthorId);
+router.get(
+  "/:postId",
 
+  commentController.getCommentByCommentId,
+);
+router.patch(
+  "/:commentId",
+  auth(Role.ADMIN, Role.AUTHOR, Role.USER),
+  commentController.updateComment,
+);
+
+router.delete(
+  "/:commentId",
+  auth(Role.ADMIN, Role.AUTHOR, Role.USER),
+  commentController.deleteComment,
+);
+router.put("/:commentId/moderate",)
 export const commentRouter = router;
