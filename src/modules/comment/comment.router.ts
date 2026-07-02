@@ -26,5 +26,9 @@ router.delete(
   auth(Role.ADMIN, Role.AUTHOR, Role.USER),
   commentController.deleteComment,
 );
-router.put("/:commentId/moderate",)
+router.put(
+  "/:commentId/moderate",
+  auth(Role.ADMIN),
+  commentController.moderateComment,
+);
 export const commentRouter = router;

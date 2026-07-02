@@ -84,8 +84,8 @@ const moderateComment = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     success: true,
     statusCode: httpStatus.OK,
-    message: "Comment delete successfully",
-    data: null,
+    message: "Comment Moderate successfully",
+    data: result,
   });
 });
 export const commentController = {
